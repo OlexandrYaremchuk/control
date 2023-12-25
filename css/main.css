@@ -101,4 +101,15 @@
     "Lucida Sans", Arial, sans-serif;
   font-size: 200px;
   text-align: center;
+  cursor: pointer;
+}
+.qestions {
+  width: 70vw;
+  height: 8vh;
+  background-color: rgba(128, 128, 128, 0);
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 26px;
+  color: #34201a;
 }

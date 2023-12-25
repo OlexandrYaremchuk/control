@@ -14,3 +14,9 @@ function addGroup() {
   box.innerHTML = `<div class="group">${grNumber}</div>`;
 }
 setTimeout(addGroup, 3000);
+
+box.addEventListener("click", (e) => {
+  box.innerHTML = `<div class="group">
+   <input type="text" class="qestions" placeholder=""sdsdsd/>
+   </div> `;
+});

@@ -11,7 +11,7 @@ function getNumberGr() {
 
 function addGroup() {
   getNumberGr();
-  box.innerHTML = `<div class="group">${grNumber}</div>`;
+  box.innerHTML = `<div class="group"> <h1>${grNumber}</h1></div>`;
 }
 setTimeout(addGroup, 3000);
 
@@ -23,7 +23,7 @@ box.addEventListener("touchstart", (e) => {
   
   Та завжди пам'ятайте  - це не особистий бенкет, тут жодних персональних слів, лише код та пакет.</p>
    <input type="text" class="qestions" placeholder=""sdsdsd/>
-   <div class="feedback"></div>
+   <div class="feedback z_i"></div>
    </div> `;
   const getInputValue = document.querySelector(".qestions");
   console.log(getInputValue);
@@ -32,11 +32,10 @@ box.addEventListener("touchstart", (e) => {
     console.log(value);
     const feedback = document.querySelector(".feedback");
     if (value.toLowerCase() === "local storage") {
-      feedback.innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/7778/7778643.png" width="50" height="50" />`;
+      feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
       localStorage.setItem("value1", JSON.stringify(value));
     } else {
-      feedback.innerHTML = `<img src="https://www.freeiconspng.com/thumbs/error-icon/error-icon-4.png" width="50" height="50" />`;
+      feedback.innerHTML = `<img class="z_i res" src="./image/error.png" />`;
     }
   });
 });
-h;

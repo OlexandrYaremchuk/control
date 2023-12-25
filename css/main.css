@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: center;
   font-size: 56px;
+  padding-bottom: 30px;
 }
 .start {
   padding: 20px 30px;
@@ -99,9 +100,11 @@
 .group {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif,
     "Lucida Sans", Arial, sans-serif;
-  font-size: 200px;
   text-align: center;
   cursor: pointer;
+}
+h1 {
+  font-size: 200px;
 }
 .qestions {
   width: 70vw;
@@ -113,11 +116,23 @@
   padding: 5px 20px;
   font-size: 26px;
   color: #34201a;
-  z-index: 232323;
+  z-index: 10;
+  margin-bottom: 30px;
 }
 .question_text {
   color: antiquewhite;
-  font-size: 28px;
+  font-size: 22px;
   padding: 0 20px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-bottom: 30px;
+}
+.z_i {
+  z-index: 10;
+}
+/* .feedback {
+  border: 1px solid wheat;
+} */
+.res {
+  width: 60px;
+  height: 60px;
 }

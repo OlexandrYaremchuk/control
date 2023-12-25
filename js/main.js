@@ -15,8 +15,9 @@ function addGroup() {
 }
 setTimeout(addGroup, 3000);
 
-box.addEventListener("click", (e) => {
+box.addEventListener("touchstart", (e) => {
   box.innerHTML = `<div class="group">
+  <p></p>
    <input type="text" class="qestions" placeholder=""sdsdsd/>
    </div> `;
 });

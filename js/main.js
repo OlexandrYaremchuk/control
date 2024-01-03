@@ -1,17 +1,32 @@
 // призначаю групу
 const box = document.querySelector(".js_box");
-let grNumber;
+let grNumbers = [];
+
 function getNumberGr() {
   const max = 2;
   const min = 1;
-  grNumber = Math.round(Math.random() * (max - min) + min);
-  // Повертаємо 1 або 2 в залежності від випадкового значення
-  localStorage.setItem("group", JSON.stringify(grNumber));
+
+  // Якщо всі числа вже використані, генеруємо новий масив
+  if (grNumbers.length === 0) {
+    grNumbers = Array.from({ length: max }, (_, index) => index + 1);
+  }
+
+  // Вибираємо випадкове число з доступних
+  const randomIndex = Math.floor(Math.random() * grNumbers.length);
+  const selectedNumber = grNumbers[randomIndex];
+
+  // Видаляємо вибране число з масиву
+  grNumbers.splice(randomIndex, 1);
+
+  // Повертаємо вибране число
+  return selectedNumber;
 }
 
-setTimeout(changePath, 7000);
 function changePath() {
-  if (JSON.parse(localStorage.getItem("group")) === 1) {
+  const groupNumber = getNumberGr();
+  localStorage.setItem("group", JSON.stringify(groupNumber));
+
+  if (groupNumber === 1) {
     window.location.href = "1.html";
   } else {
     window.location.href = "2.html";
@@ -19,10 +34,11 @@ function changePath() {
 }
 
 function addGroup() {
-  getNumberGr();
-  box.innerHTML = `<div class="group"> <h1>${grNumber}</h1></div>`;
+  const groupNumber = getNumberGr();
+  localStorage.setItem("group", JSON.stringify(groupNumber));
+
+  box.innerHTML = `<div class="group"> <h1>${groupNumber}</h1></div>`;
+  setTimeout(changePath, 7000);
 }
+
 setTimeout(addGroup, 3000);
-if (JSON.parse(localStorage.getItem("group")) === 1) {
-  window.location.href = "";
-}

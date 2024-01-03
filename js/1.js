@@ -5,12 +5,10 @@ setTimeout(question_1, 2000);
 
 function question_1() {
   box.innerHTML = `<div class="group">
-    <p class="question_text">У веб-просторах та веб-краях, Є місце, де дані зачаєно, як скарб.<br/> 
-    Відкрий інструменти, поглянь на "аплікуху". <br/>
-     Кожні 5 секунд то прийде то зникне, як таємничий герой.<br/>
-    
-    Та завжди пам'ятайте  - це не особистий бенкет, тут жодних персональних слів, лише код та пакет.</p>
-     <input type="text" class="qestions" placeholder=""sdsdsd/>
+    <p class="question_text">
+    Поверни мене на бік, і я все. Розрізай мене навпіл, і я ніщо. Що я? 
+    </p>
+     <input type="text" class="qestions" placeholder="Введи номер аудиторії"/>
      <div class="feedback z_i"></div>
      </div> `;
   const getInputValue = document.querySelector(".qestions");
@@ -19,7 +17,7 @@ function question_1() {
     let value1 = e.currentTarget.value;
     console.log(value1);
     const feedback = document.querySelector(".feedback");
-    if (value1.toLowerCase() === "local storage") {
+    if (value1.toLowerCase() === "8") {
       feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
       localStorage.setItem("value1", JSON.stringify(value1));
 
@@ -36,7 +34,14 @@ function question_2() {
   if (localStorage.getItem("value1") !== null) {
     console.log("yes");
     box.innerHTML = `<div class="group">
-    <p class="question_text">Шукай мене там, де я маю бути, якщо чогось не буде. <br/> Я те що дозволяє сліпому побачити, я те що забувають писати розробники, але знаходять тестувальники.<br/>. Я не тег я атрибут. Щоб мене побачити потрібно зламати щось інше.</p>
+    <p class="question_text">
+    У веб-просторах та веб-краях, Є місце, де дані зачаєно, як скарб.<br/> 
+    Відкрий інструменти, поглянь на "аплікуху". <br/>
+     Кожні 5 секунд то прийде то зникне, як таємничий герой.<br/>
+    
+    Та завжди пам'ятайте  - це не особистий бенкет, тут жодних персональних слів, лише код та пакет.
+    
+    </p>
      <input type="text" class="qestions" placeholder="Введи знайдену підказку"/>
      <div class="feedback z_i"></div>
      </div> `;
@@ -58,10 +63,10 @@ function question_2() {
 }
 // question3
 function question_3() {
-  if (localStorage.getItem("value1") !== null) {
+  if (localStorage.getItem("value2") !== null) {
     console.log("yes");
     box.innerHTML = `<div class="group">
-    <p class="question_text">Додаток, в якому один бачить що треба робити а інший чи так воно вийшло.</p>
+    <p class="question_text">Шукай мене там, де я маю бути, якщо чогось не буде. <br/> Я те що дозволяє сліпому побачити, я те що забувають писати розробники, але знаходять тестувальники.<br/>. Я не тег я атрибут. Щоб мене побачити потрібно зламати щось інше.</p>
      <input type="text" class="qestions" placeholder="Введи знайдену підказку"/>
      <div class="feedback z_i"></div>
      </div> `;
@@ -74,6 +79,30 @@ function question_3() {
       if (value3.toLowerCase() === "figma") {
         feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
         localStorage.setItem("value3", JSON.stringify(value3));
+        question_4();
+      } else {
+        feedback.innerHTML = `<img class="z_i res" src="./image/error.png" />`;
+      }
+    });
+  }
+}
+function question_4() {
+  if (localStorage.getItem("value3") !== null) {
+    console.log("yes");
+    box.innerHTML = `<div class="group">
+    <p class="question_text">Додаток, в якому один бачить що треба робити а інший чи так воно вийшло.</p>
+     <input type="text" class="qestions" placeholder="Введи знайдену підказку"/>
+     <div class="feedback z_i"></div>
+     </div> `;
+    const getInputValue = document.querySelector(".qestions");
+    console.log(getInputValue);
+    getInputValue.addEventListener("change", (e) => {
+      let value4 = e.currentTarget.value;
+      console.log(value4);
+      const feedback = document.querySelector(".feedback");
+      if (value4.toLowerCase() === "figma") {
+        feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
+        localStorage.setItem("value4", JSON.stringify(value4));
       } else {
         feedback.innerHTML = `<img class="z_i res" src="./image/error.png" />`;
       }

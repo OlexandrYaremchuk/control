@@ -1,9 +1,11 @@
 const box = document.querySelector(".js_box_1");
-
+const video_container = document.querySelector("video");
 // question 1
 setTimeout(question_1, 2000);
 
 function question_1() {
+  video_container.src = "./image/find_room.mp4";
+
   box.innerHTML = `<div class="group">
     <p class="question_text">
     Поверни мене на бік, і я все. Розрізай мене навпіл, і я ніщо. Що я? 
@@ -22,7 +24,10 @@ function question_1() {
       localStorage.setItem("value1", JSON.stringify(value1));
 
       // Викликаємо функцію question_2 після запису в localStorage
-      question_2();
+      video_container.src = "./image/run_to_room.mp4";
+      setTimeout(question_2, 400);
+
+      // question_2();
     } else {
       feedback.innerHTML = `<img class="z_i res" src="./image/error.png" />`;
     }
@@ -33,6 +38,8 @@ function question_1() {
 function question_2() {
   if (localStorage.getItem("value1") !== null) {
     console.log("yes");
+    video_container.src = "./image/find_pc.mp4";
+
     box.innerHTML = `<div class="group">
     <p class="question_text">
     У веб-просторах та веб-краях, Є місце, де дані зачаєно, як скарб.<br/> 
@@ -51,7 +58,7 @@ function question_2() {
       let value2 = e.currentTarget.value;
       console.log(value2);
       const feedback = document.querySelector(".feedback");
-      if (value2.toLowerCase() === "alt") {
+      if (value2.toLowerCase() === "там") {
         feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
         localStorage.setItem("value2", JSON.stringify(value2));
         question_3();
@@ -65,6 +72,8 @@ function question_2() {
 function question_3() {
   if (localStorage.getItem("value2") !== null) {
     console.log("yes");
+    video_container.src = "./image/pum_burum.mp4";
+
     box.innerHTML = `<div class="group">
     <p class="question_text">Шукай мене там, де я маю бути, якщо чогось не буде. <br/> Я те що дозволяє сліпому побачити, я те що забувають писати розробники, але знаходять тестувальники.<br/>. Я не тег я атрибут. Щоб мене побачити потрібно зламати щось інше.</p>
      <input type="text" class="qestions" placeholder="Введи знайдену підказку"/>
@@ -76,7 +85,7 @@ function question_3() {
       let value3 = e.currentTarget.value;
       console.log(value3);
       const feedback = document.querySelector(".feedback");
-      if (value3.toLowerCase() === "figma") {
+      if (value3.toLowerCase() === "був") {
         feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
         localStorage.setItem("value3", JSON.stringify(value3));
         question_4();
@@ -100,14 +109,31 @@ function question_4() {
       let value4 = e.currentTarget.value;
       console.log(value4);
       const feedback = document.querySelector(".feedback");
-      if (value4.toLowerCase() === "figma") {
+      if (value4.toLowerCase() === "початок") {
         feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
         localStorage.setItem("value4", JSON.stringify(value4));
+        finish();
       } else {
         feedback.innerHTML = `<img class="z_i res" src="./image/error.png" />`;
       }
     });
   }
+}
+function finish() {
+  if (localStorage.getItem("value4") !== null) {
+    const result1 = localStorage.getItem("value2");
+    const result2 = localStorage.getItem("value3");
+    const result3 = localStorage.getItem("value4");
+    console.log("yes");
+    video_container.src = "./image/go.mp4";
+
+    box.innerHTML = `<div class="group">
+    <p class="question_text">${result1}  ${result2}  ${result3} </p>
+     
+    
+    </div> `;
+  }
+  video_container.src = "./image/rebus.mp4";
 }
 
 // Очистка localStorage (це видалити, якщо вам не потрібно очищати localStorage)

@@ -105,6 +105,7 @@ function question_4() {
 
         feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
         localStorage.setItem("value3", JSON.stringify(value4));
+        finish();
       } else {
         feedback.innerHTML = `<img class="z_i res" src="./image/error.png" />`;
       }

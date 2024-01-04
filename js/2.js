@@ -60,7 +60,7 @@ function question_2() {
 }
 // question3
 function question_3() {
-  if (localStorage.getItem("value1") !== null) {
+  if (localStorage.getItem("value2") !== null) {
     console.log("yes");
     video_container.src = "./image/pum_burum.mp4";
 
@@ -87,22 +87,24 @@ function question_3() {
 }
 // question4
 function question_4() {
-  if (localStorage.getItem("value1") !== null) {
+  if (localStorage.getItem("value3") !== null) {
     console.log("yes");
     box.innerHTML = `<div class="group">
     <p class="question_text">Яка властивість може зробити явним на сторінці та навпаки.</p>
-     <input type="text" class="qestions" placeholder="Введи знайдену підказку"/>
+     <input type="text" class="qestions" placeholder="Введи відповідь"/>
      <div class="feedback z_i"></div>
      </div> `;
     const getInputValue = document.querySelector(".qestions");
     console.log(getInputValue);
     getInputValue.addEventListener("change", (e) => {
-      let value3 = e.currentTarget.value;
-      console.log(value3);
+      let value4 = e.currentTarget.value;
+      console.log(value4);
       const feedback = document.querySelector(".feedback");
-      if (value3.toLowerCase() === "figma") {
+      if (value4.toLowerCase() === "opacity") {
+        alert("Ваша підказка  - `вперше`");
+
         feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
-        localStorage.setItem("value3", JSON.stringify(value3));
+        localStorage.setItem("value3", JSON.stringify(value4));
       } else {
         feedback.innerHTML = `<img class="z_i res" src="./image/error.png" />`;
       }
@@ -120,10 +122,18 @@ function finish() {
     box.innerHTML = `<div class="group">
     <p class="question_text">${result1}  ${result2}  ${result3} </p>
      
-    
     </div> `;
   }
+
   video_container.src = "./image/rebus.mp4";
+  function addRebus() {
+    const rebus = document.querySelector(".group");
+    rebus.insertAdjacentHTML(
+      "beforeend",
+      `<img src="./image/rebus.png" class="rebus"/>`
+    );
+  }
+  setTimeout(addRebus, 17000);
 }
 
 // Очистка localStorage (це видалити, якщо вам не потрібно очищати localStorage)

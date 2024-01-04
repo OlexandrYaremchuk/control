@@ -100,7 +100,7 @@ function question_4() {
     console.log("yes");
     box.innerHTML = `<div class="group">
     <p class="question_text">Додаток, в якому один бачить що треба робити а інший чи так воно вийшло.</p>
-     <input type="text" class="qestions" placeholder="Введи знайдену підказку"/>
+     <input type="text" class="qestions" placeholder="Введи відповідь"/>
      <div class="feedback z_i"></div>
      </div> `;
     const getInputValue = document.querySelector(".qestions");
@@ -109,7 +109,8 @@ function question_4() {
       let value4 = e.currentTarget.value;
       console.log(value4);
       const feedback = document.querySelector(".feedback");
-      if (value4.toLowerCase() === "початок") {
+      if (value4.toLowerCase() === "figma") {
+        alert("Ваша підказка  - `Початок`");
         feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
         localStorage.setItem("value4", JSON.stringify(value4));
         finish();
@@ -130,10 +131,18 @@ function finish() {
     box.innerHTML = `<div class="group">
     <p class="question_text">${result1}  ${result2}  ${result3} </p>
      
-    
     </div> `;
   }
+
   video_container.src = "./image/rebus.mp4";
+  function addRebus() {
+    const rebus = document.querySelector(".group");
+    rebus.insertAdjacentHTML(
+      "beforeend",
+      `<img src="./image/rebus.png" class="rebus"/>`
+    );
+  }
+  setTimeout(addRebus, 17000);
 }
 
 // Очистка localStorage (це видалити, якщо вам не потрібно очищати localStorage)

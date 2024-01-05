@@ -5,7 +5,9 @@ setTimeout(question_1, 2000);
 
 function question_1() {
   video_container.src = "./image/find_room.mp4";
-
+  video_container.addEventListener("loadedmetadata", function () {
+    video_container.play(); // Автоматичне відтворення відео
+  });
   box.innerHTML = `<div class="group">
     <p class="question_text">
     Поверни мене на бік, і я все. Розрізай мене навпіл, і я ніщо. Що я? 
@@ -39,7 +41,9 @@ function question_2() {
   if (localStorage.getItem("value1") !== null) {
     console.log("yes");
     video_container.src = "./image/find_pc.mp4";
-
+    video_container.addEventListener("loadedmetadata", function () {
+      video_container.play(); // Автоматичне відтворення відео
+    });
     box.innerHTML = `<div class="group">
     <p class="question_text">
     У веб-просторах та веб-краях, Є місце, де дані зачаєно, як скарб.<br/> 
@@ -73,7 +77,9 @@ function question_3() {
   if (localStorage.getItem("value2") !== null) {
     console.log("yes");
     video_container.src = "./image/pum_burum.mp4";
-
+    video_container.addEventListener("loadedmetadata", function () {
+      video_container.play(); // Автоматичне відтворення відео
+    });
     box.innerHTML = `<div class="group">
     <p class="question_text">Шукай мене там, де я маю бути, якщо чогось не буде. <br/> Я те що дозволяє сліпому побачити, я те що забувають писати розробники, але знаходять тестувальники.<br/>. Я не тег я атрибут. Щоб мене побачити потрібно зламати щось інше.</p>
      <input type="text" class="qestions" placeholder="Введи знайдену підказку"/>
@@ -110,9 +116,9 @@ function question_4() {
       console.log(value4);
       const feedback = document.querySelector(".feedback");
       if (value4.toLowerCase() === "figma") {
-        alert("Ваша підказка  - `Початок`");
+        alert("Ваша підказка  - `початок`");
         feedback.innerHTML = `<img class="z_i res" src="./image/good.png"/>`;
-        localStorage.setItem("value4", JSON.stringify(value4));
+        localStorage.setItem("value4", JSON.stringify("початок"));
         finish();
       } else {
         feedback.innerHTML = `<img class="z_i res" src="./image/error.png" />`;
@@ -127,7 +133,9 @@ function finish() {
     const result3 = localStorage.getItem("value4");
     console.log("yes");
     video_container.src = "./image/go.mp4";
-
+    video_container.addEventListener("loadedmetadata", function () {
+      video_container.play(); // Автоматичне відтворення відео
+    });
     box.innerHTML = `<div class="group">
     <p class="question_text">${result1}  ${result2}  ${result3} </p>
      
@@ -135,6 +143,9 @@ function finish() {
   }
 
   video_container.src = "./image/rebus.mp4";
+  video_container.addEventListener("loadedmetadata", function () {
+    video_container.play(); // Автоматичне відтворення відео
+  });
   function addRebus() {
     const rebus = document.querySelector(".group");
     rebus.insertAdjacentHTML(

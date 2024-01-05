@@ -27,7 +27,7 @@ function question_1() {
 
       // Викликаємо функцію question_2 після запису в localStorage
       video_container.src = "./image/run_to_room.mp4";
-      setTimeout(question_2, 400);
+      setTimeout(question_2, 40000);
 
       // question_2();
     } else {

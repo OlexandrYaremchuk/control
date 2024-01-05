@@ -26,7 +26,7 @@ function question_1() {
       localStorage.setItem("value1", JSON.stringify(value1));
 
       // Викликаємо функцію question_2 після запису в localStorage
-      setTimeout(question_2, 400);
+      setTimeout(question_2, 40000);
     } else {
       feedback.innerHTML = `<img class="z_i res" src="./image/error.png" />`;
     }
